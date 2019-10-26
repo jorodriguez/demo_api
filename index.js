@@ -29,6 +29,7 @@ app.get('/', (request, response) => {
     response.json({ info: 'La api está online' })
 });
 
+app.get('/usuarios', usuarioService.getUsuarios);
 
 app.listen(port, () => {
     console.log(`API corriendo en el puerto ${port}`)

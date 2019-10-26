@@ -1,4 +1,5 @@
 
+//Destructuracion de objetos 
 const { pool } = require('../db/conexion');
 const handle = require('../helpers/handlersErrors');
 
@@ -9,7 +10,7 @@ const getUsuarios = (request, response) => {
     try {      
         pool.query(GET_ALL_QUERY,(error, results) => {
                 if (error) {
-                    handle.callbackError(error, response);
+                    handle.callbackError(error, response);                    
                     return;
                 }
                 let usuarios = results.rows;                
