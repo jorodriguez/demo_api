@@ -14,6 +14,15 @@ app.use(
     })
 );
 
+app.use((req, res, next) => {   
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,x-access-token'); // If needed 
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+    next();
+});
+
+
 app.get('/', (request, response) => {
     response.json({ info: 'La api está online' })
 });
